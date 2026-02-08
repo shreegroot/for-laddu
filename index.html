@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Laddu 🤍</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Comic Sans MS", cursive, monospace;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 22px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 380px;
+      animation: pop 0.8s ease;
+    }
+
+    h1 {
+      color: #ff4d88;
+      margin-bottom: 12px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #555;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      width: 85%;
+      max-width: 260px;
+      padding: 14px;
+      margin: 10px auto;
+      display: block;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    #yes {
+      background: #ff4d88;
+      color: white;
+    }
+
+    #no {
+      background: #f1f1f1;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .tap-note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #888;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4d88;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+      }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.6); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body onclick="startMusic()">
+
+  <audio id="music" loop>
+    <source src="./bg-r.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card" id="card">
+    <h1>Hey Laddu 🤍</h1>
+    <p>
+      Every day with you feels like I'm in heaven. (excl. fight days😂)<br><br>
+      Will you be my Valentine? 🌸
+    </p>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">Yes 💕</button>
+      <button id="no" onmouseover="moveNo()">No 🙈</button>
+    </div>
+
+    <div class="tap-note">
+      (Tap anywhere to start the music 🎶)
+    </div>
+  </div>
+
+  <script>
+    let musicStarted = false;
+
+    function startMusic() {
+      if (!musicStarted) {
+        document.getElementById("music").play();
+        musicStarted = true;
+      }
+    }
+
+    function yesClicked() {
+      document.getElementById("card").innerHTML = `
+        <h1>I knew it 🥹❤️</h1>
+        <p>
+          You just made my heart overflow with happiness. <br>
+          I have a secret message for you 
+        </p>
+
+        <button id="unlock" onclick="unlockSecret()">
+          🎁 Unlock secret message
+        </button>
+
+        <div id="secret" style="
+          display:none;
+          margin-top:20px;
+          font-size:17px;
+          color:#ff4d88;
+          animation: pop 0.8s ease;
+          overflow: scroll;
+          height: 40vh;
+        ">
+          Oiii Laddu 🤍<br><br>
+          You are my safe place,<br>
+          my favorite notification,<br>
+          and the best thing that ever happened to me.<br><br>
+          <i>Long Message Alert 🚨 (scrollable)</i> <br><br>
+          I repeat your dialog, 'Enaku indha cinema la vara madhiri lam propose pana theriyadhu 😅', edho enaku therinja madhiri panure <br>
+
+          Ne enga irundha, epdi ena thedi vandha nu lam therila! <br>
+          Indha universe unna enkita kondu vandhu serthiruku, the thing we beleive before we meet is 'Everything happens for a reason 🤍' <br>
+          So, now i want to dedicate some lines for you <br>
+          <b>
+            💫 எப்படி வந்தாயோ 🌸 <br>
+            😊 புன்னகை தந்தாயோ 💖 <br>
+            💫 எப்படி வந்தாயோ 🌷 <br>
+            🤍 என்னையும் கொண்டாயோ 💞 <br>
+
+            🎁 கேளாமலே கையில் வந்த 🤲<br>
+            ✨ கட்டித் தங்கம் நீயே 💛<br>
+
+            🌿 தள்ளாமலே தள்ளாடும் 🫶<br>
+            🗣️ தாய்மொழி நீயே... ❤️<br>
+          </b> <br>
+          Epavume ipdiye enkooda iru! <br>
+           sanda vendam, anbu venum! <br>
+           kovam vendam, pasam venum ! <br>
+           hurtful words vendam, romantic words venum! <br>
+           distance vendam, hug uh venum! <br>
+
+          Last year unna neraya kasta paduthiruke, sila things naala.. but apro panamate nu nanae decide pani stop panite! 
+          But still, adhu edho oru medium la vandhukita iruku, namma adha avoid panikalam, I'm really sorry 😢 <br>
+          Completely, we must throw it from our minds for better future 😉. <br>
+          Enaku ore oru wish dhan epavume god kita, unkooda neraya years vazhanum happy ah, neraya things sendhu grow aaganum, achieve pananum 💪 <br>
+          I know, this is one year late to propose you, but still you asked many time, i was waiting for perfect time, and now it is. <br> <br>
+
+          I love you forever ♾️ Chilooo, thangooo, pattuu, pappu (my everything)
+        </div>
+      `;
+
+      for (let i = 0; i < 40; i++) createHeart();
+    }
+
+  function unlockSecret() {
+    document.getElementById("secret").style.display = "block";
+    document.getElementById("unlock").style.display = "none";
+  }
+
+    function moveNo() {
+      const btn = document.getElementById("no");
+      btn.style.position = "fixed";
+      btn.style.left = Math.random() * 70 + "vw";
+      btn.style.top = Math.random() * 70 + "vh";
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 900);
+  </script>
+
+</body>
+</html>
